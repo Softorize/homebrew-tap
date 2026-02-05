@@ -8,6 +8,7 @@ Homebrew formulae and casks for Softorize tools.
 brew tap softorize/tap
 brew install linked
 brew install --cask spotsearch
+brew install --cask postai
 ```
 
 ## Available Formulae
@@ -21,6 +22,7 @@ brew install --cask spotsearch
 | Cask | Description |
 |------|-------------|
 | `spotsearch` | Fast, lightweight file search application for macOS |
+| `postai` | Advanced API Testing Tool with AI Integration |
 
 ## Update
 
@@ -28,4 +30,5 @@ brew install --cask spotsearch
 brew update
 brew upgrade linked
 brew upgrade --cask spotsearch
+brew upgrade --cask postai
 ```
