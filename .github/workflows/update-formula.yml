@@ -2,13 +2,14 @@ name: Update Formula
 
 on:
   repository_dispatch:
-    types: [update-formula]
+    types: [update-formula, update-spotsearch]
 
 permissions:
   contents: write
 
 jobs:
-  update:
+  update-linked:
+    if: github.event.action == 'update-formula'
     runs-on: ubuntu-latest
 
     steps:
@@ -40,4 +41,31 @@ jobs:
           git add Formula/linked.rb
           git diff --cached --quiet && echo "No changes to commit" && exit 0
           git commit -m "Update linked to v${{ github.event.client_payload.version }}"
+          git push
+
+  update-spotsearch:
+    if: github.event.action == 'update-spotsearch'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update spotsearch cask
+        env:
+          VERSION: ${{ github.event.client_payload.version }}
+          SHA256: ${{ github.event.client_payload.sha256 }}
+        run: |
+          CASK="Casks/spotsearch.rb"
+          sed -i "s/^  version \".*\"/  version \"${VERSION}\"/" "$CASK"
+          sed -i "s/sha256 \"[a-f0-9]\{64\}\"/sha256 \"${SHA256}\"/" "$CASK"
+          echo "Updated cask to v${VERSION}"
+          cat "$CASK"
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Casks/spotsearch.rb
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "Update spotsearch to v${{ github.event.client_payload.version }}"
           git push
