@@ -1,6 +1,6 @@
 cask "postai" do
-  version "1.4.0"
-  sha256 "94bc4855b72941fc0b4a35677fa342e172f36ff7911c692b8d303799938a20fe"
+  version "1.5.0"
+  sha256 "b7a2d27291f450c5ec5105a82beb3b48815e18e234734196d5f61cb5eeea1036"
 
   url "https://github.com/Softorize/postai/releases/download/v#{version}/PostAI-#{version}-arm64.dmg",
       verified: "github.com/Softorize/postai/"
