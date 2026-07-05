@@ -16,6 +16,7 @@ brew install --cask postai
 | Formula | Description |
 |---------|-------------|
 | `linked` | Fast LinkedIn CLI — read, post, message, and network from your terminal |
+| `yoy` | Yahoo Mail CLI — read, send, search, and manage Yahoo Mail from your terminal |
 
 ## Available Casks
 
