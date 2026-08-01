@@ -2,15 +2,22 @@ class Claudebrain < Formula
   desc "Watch Claude Code think - live synapse-graph visualizer for sessions and tools"
   homepage "https://github.com/Softorize/claudebrain"
   license "MIT"
-  version "0.3.0"
+  version "0.3.1"
   url "https://github.com/Softorize/claudebrain/releases/download/v#{version}/claudebrain-#{version}.tgz"
-  sha256 "6114c309f7d9cfb85b8d3b62a7ca6b63957407d85cdc13ef0a6357156789b4e8"
+  sha256 "c10ea93d6a58422ab5f62929237db67884967d2463629db5ed7432e11dfbb189"
 
   depends_on "node"
 
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
+  end
+
+  service do
+    run [opt_bin/"claudebrain", "start", "--no-open"]
+    keep_alive true
+    log_path var/"log/claudebrain.log"
+    error_log_path var/"log/claudebrain.log"
   end
 
   def caveats
@@ -21,6 +28,8 @@ class Claudebrain < Formula
         claudebrain start
       Only sessions started after installing hooks report events.
       Undo anytime with: claudebrain uninstall-hooks
+      Run the viewer server persistently (auto-restarts, starts at login):
+        brew services start claudebrain
     EOS
   end
 
