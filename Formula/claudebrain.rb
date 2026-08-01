@@ -2,9 +2,9 @@ class Claudebrain < Formula
   desc "Watch Claude Code think - live synapse-graph visualizer for sessions and tools"
   homepage "https://github.com/Softorize/claudebrain"
   license "MIT"
-  version "0.3.1"
+  version "0.3.2"
   url "https://github.com/Softorize/claudebrain/releases/download/v#{version}/claudebrain-#{version}.tgz"
-  sha256 "c10ea93d6a58422ab5f62929237db67884967d2463629db5ed7432e11dfbb189"
+  sha256 "e592bbe2ddd395684c4fbf04078b263ee76482251853b66d41db6f19fd3b28c2"
 
   depends_on "node"
 
