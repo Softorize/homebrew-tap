@@ -2,7 +2,7 @@ name: Update Formula
 
 on:
   repository_dispatch:
-    types: [update-formula, update-spotsearch, update-postai]
+    types: [update-formula, update-spotsearch, update-postai, update-claudebrain]
 
 permissions:
   contents: write
@@ -95,4 +95,31 @@ jobs:
           git add Casks/postai.rb
           git diff --cached --quiet && echo "No changes to commit" && exit 0
           git commit -m "Update postai to v${{ github.event.client_payload.version }}"
+          git push
+
+  update-claudebrain:
+    if: github.event.action == 'update-claudebrain'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update claudebrain formula
+        env:
+          VERSION: ${{ github.event.client_payload.version }}
+          SHA256: ${{ github.event.client_payload.sha256 }}
+        run: |
+          FORMULA="Formula/claudebrain.rb"
+          sed -i "s/^  version \".*\"/  version \"${VERSION}\"/" "$FORMULA"
+          sed -i "s/sha256 \"[a-f0-9]\{64\}\"/sha256 \"${SHA256}\"/" "$FORMULA"
+          echo "Updated formula to v${VERSION}"
+          cat "$FORMULA"
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/claudebrain.rb
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "Update claudebrain to v${{ github.event.client_payload.version }}"
           git push
