@@ -33,3 +33,7 @@ brew upgrade linked
 brew upgrade --cask spotsearch
 brew upgrade --cask postai
 ```
+
+## License
+
+[MIT](LICENSE) © Softorize
