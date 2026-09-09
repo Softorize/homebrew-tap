@@ -23,6 +23,8 @@
 #
 # sha256 values below come from the v0.1.1 release checksums.txt.
 
+require "json"
+
 class GitHubPrivateReleaseDownloadStrategy < CurlDownloadStrategy
   def initialize(url, name, version, **meta)
     super
@@ -55,8 +57,9 @@ class GitHubPrivateReleaseDownloadStrategy < CurlDownloadStrategy
     metadata_url = "https://api.github.com/repos/#{@owner}/#{@repo}/releases/tags/#{@tag}"
     headers = ["Authorization: token #{@github_token}", "Accept: application/vnd.github+json"]
     metadata, = curl_output("--fail", "--silent", *headers.flat_map { |h| ["--header", h] }, metadata_url)
-    asset = metadata[/\{[^{}]*"name"\s*:\s*"#{Regexp.escape(@filename)}"[^{}]*\}/]
-    id = asset && asset[/"id"\s*:\s*(\d+)/, 1]
+    assets = JSON.parse(metadata).fetch("assets", [])
+    asset = assets.find { |a| a["name"] == @filename }
+    id = asset && asset["id"]
     raise CurlDownloadStrategyError, "No asset named #{@filename} in #{@owner}/#{@repo}@#{@tag}" unless id
 
     "https://api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{id}"
