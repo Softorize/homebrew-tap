@@ -17,6 +17,7 @@ brew install --cask postai
 |---------|-------------|
 | `linked` | Fast LinkedIn CLI — read, post, message, and network from your terminal |
 | `yoy` | Yahoo Mail CLI — read, send, search, and manage Yahoo Mail from your terminal |
+| `cpass` | ClaudePass — secret manager for AI coding agents (see note below) |
 
 ## Available Casks
 
@@ -24,6 +25,14 @@ brew install --cask postai
 |------|-------------|
 | `spotsearch` | Fast, lightweight file search application for macOS |
 | `postai` | Advanced API Testing Tool with AI Integration |
+
+**`cpass` note:** its source repo (`gumruyanzh/claudepass`) is private, so
+`brew install cpass` needs a token with read access to it first:
+
+```bash
+export HOMEBREW_GITHUB_API_TOKEN=$(gh auth token)
+brew install cpass
+```
 
 ## Update
 
