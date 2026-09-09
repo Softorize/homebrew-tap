@@ -21,10 +21,7 @@
 #      this pass. Filed as a follow-up (see ClaudePass CLA board) rather
 #      than built silently here.
 #
-# sha256 values below are placeholders (SHA256_PENDING_FIRST_RELEASE) until
-# v0.1.0 actually ships; replace them from dist/checksums.txt (or
-# `shasum -a 256 <asset>`) once `goreleaser release --clean` has run for
-# real against a pushed tag.
+# sha256 values below come from the v0.1.1 release checksums.txt.
 
 class GitHubPrivateReleaseDownloadStrategy < CurlDownloadStrategy
   def initialize(url, name, version, **meta)
@@ -77,20 +74,20 @@ end
 class Cpass < Formula
   desc "Secret manager for AI coding agents — Agents see Handles, never Secret values"
   homepage "https://github.com/gumruyanzh/claudepass"
-  version "0.1.0"
+  version "0.1.1"
   license :cannot_represent # closed source, paid plan — ADR-0006
 
   on_macos do
     on_arm do
       url "https://github.com/gumruyanzh/claudepass/releases/download/v#{version}/cpass_darwin_arm64.tar.gz",
           using: GitHubPrivateReleaseDownloadStrategy
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000" # placeholder, see header
+      sha256 "c0b877437e4aae417a04ca6762db9dcc15aaa29a8e33f659d58c9983c9d900ea"
     end
 
     on_intel do
       url "https://github.com/gumruyanzh/claudepass/releases/download/v#{version}/cpass_darwin_amd64.tar.gz",
           using: GitHubPrivateReleaseDownloadStrategy
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000" # placeholder, see header
+      sha256 "d7d4c5aaa72f2f7fe9e5695f462a1a6d73e1078276ff67e4925189b762c707d3"
     end
   end
 
@@ -98,13 +95,13 @@ class Cpass < Formula
     on_arm do
       url "https://github.com/gumruyanzh/claudepass/releases/download/v#{version}/cpass_linux_arm64.tar.gz",
           using: GitHubPrivateReleaseDownloadStrategy
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000" # placeholder, see header
+      sha256 "5dd5911b394c26a9a68f3e29e2cd3616594eaafebbb9db821e4e8d2d0a8268ed"
     end
 
     on_intel do
       url "https://github.com/gumruyanzh/claudepass/releases/download/v#{version}/cpass_linux_amd64.tar.gz",
           using: GitHubPrivateReleaseDownloadStrategy
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000" # placeholder, see header
+      sha256 "38dd95d0c28105caf294c378c6f02b8113a8be5dc5c01b41f4639eeff71feae3"
     end
   end
 
