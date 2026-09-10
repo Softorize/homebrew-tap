@@ -26,11 +26,11 @@ brew install --cask postai
 | `spotsearch` | Fast, lightweight file search application for macOS |
 | `postai` | Advanced API Testing Tool with AI Integration |
 
-**`cpass` note:** its source repo (`gumruyanzh/claudepass`) is private, so
-`brew install cpass` needs a token with read access to it first:
+**`cpass` note:** its source repo (`gumruyanzh/claudepass`) is private, but
+release binaries are published publicly at claudepass.com, so no token is
+needed:
 
 ```bash
-export HOMEBREW_GITHUB_API_TOKEN=$(gh auth token)
 brew install cpass
 ```
 
