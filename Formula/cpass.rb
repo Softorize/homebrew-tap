@@ -1,18 +1,16 @@
-# cpass (ClaudePass) ships from a PRIVATE source repo — gumruyanzh/claudepass
-# — by design (ADR-0006: closed source, freemium). GoReleaser (CLA-16)
-# builds the release binaries there, but they are published publicly at
-# https://claudepass.com/dl/<version>/ (see claudepass's deploy/ directory
-# and deploy/README.md), so `brew install` needs no GitHub token at all —
-# the default Homebrew download strategy just curls a public URL, same as
-# any other formula.
+# cpass (ClaudePass) — https://github.com/gumruyanzh/claudepass, free and
+# open source under the MIT license (ADR-0011). GoReleaser builds the release
+# binaries from tagged commits and they are mirrored at
+# https://claudepass.com/dl/<version>/ (see the repo's deploy/README.md), so
+# `brew install` just curls a public URL like any other formula.
 #
-# sha256 values below come from the v0.1.2 release checksums.txt.
+# sha256 values below come from the release's checksums.txt.
 
 class Cpass < Formula
   desc "Secret manager for AI coding agents — Agents see Handles, never Secret values"
   homepage "https://claudepass.com"
   version "0.1.4"
-  license :cannot_represent # closed source, paid plan — ADR-0006
+  license "MIT"
 
   on_macos do
     on_arm do
