@@ -1,4 +1,4 @@
-# cpass (ClaudePass) — https://github.com/gumruyanzh/claudepass, free and
+# cpass (ClaudePass) — https://github.com/Elixion-ai/claudepass, free and
 # open source under the MIT license (ADR-0011). GoReleaser builds the release
 # binaries from tagged commits and they are mirrored at
 # https://claudepass.com/dl/<version>/ (see the repo's deploy/README.md), so
