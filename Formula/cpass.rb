@@ -9,30 +9,30 @@
 class Cpass < Formula
   desc "Secret manager for AI coding agents — Agents see Handles, never Secret values"
   homepage "https://claudepass.com"
-  version "0.2.1"
+  version "0.3.1"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://claudepass.com/dl/v#{version}/cpass_darwin_arm64.tar.gz"
-      sha256 "7fc2832cc2fc43e23835836369838dc1de1815a10520098ff91cceb997415fae"
+      sha256 "7fb614e6c7df16b13b362827c035c30b9ce6173ee32066f2ff1018e78fd6eec0"
     end
 
     on_intel do
       url "https://claudepass.com/dl/v#{version}/cpass_darwin_amd64.tar.gz"
-      sha256 "64723b78f6ada0ff493651d8e988cb929824c311f7bdf4439901d729a4cedcd2"
+      sha256 "30c3d1dfd12d5a939d260f8bf727067bb5e5b6689ef9bab29f3dff2a852a482d"
     end
   end
 
   on_linux do
     on_arm do
       url "https://claudepass.com/dl/v#{version}/cpass_linux_arm64.tar.gz"
-      sha256 "b852fb38e683337de15d6556d2f5f83e95debf412e201d6a065f969102ae4ca1"
+      sha256 "2e44c0f5d1463078e8882b4f047faceacf5facee9d592287f0974c2f4e4895dc"
     end
 
     on_intel do
       url "https://claudepass.com/dl/v#{version}/cpass_linux_amd64.tar.gz"
-      sha256 "7677b31c5c596884af905448d350de3a5644c761b00d2bac1c79f3bd11d9ee96"
+      sha256 "e6cf53e7849e2f852abf49981c3ab4487af9078cff67cf2eac5898fd335bb2b4"
     end
   end
 
