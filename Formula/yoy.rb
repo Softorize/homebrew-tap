@@ -1,8 +1,8 @@
 class Yoy < Formula
   desc "Yahoo Mail CLI — read, send, search, and manage Yahoo Mail from your terminal"
   homepage "https://github.com/Softorize/yoy"
-  url "https://github.com/Softorize/yoy/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "39fc54ac0418b045a83c2e09f07ea687b1b1679833b15199c4baf8245e27db66"
+  url "https://github.com/Softorize/yoy/archive/refs/tags/v0.1.3.tar.gz"
+  sha256 "70bd28dd41d946cc10837debbbee4d4860146f9c9e84f7adb5de67e839e6fdb6"
   license "MIT"
   head "https://github.com/Softorize/yoy.git", branch: "main"
 
